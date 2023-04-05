@@ -7,11 +7,16 @@
 USERNAME="Mohamed Sobh"
 EMAIL="mohamed.alhusieny@gmail.com"
 DOTFILES_REPO="git@github.com:sobh/dotfiles"
+UPKG_REPO="git@github.com:sobh/upkg"
+
 OS=""
 DOAS=""
 
 ARCH_PKGS="openssh git"
 #---- Constatns ----------------------------------------------------------------
+REPOS_DIR="$HOME/repos"
+PERSONAL_REPOS="$REPOS_DIR/$(whoami)"
+
 SUPPORTED_DOAS="doas, sudo"
 SUPPORTED_OS="Alpine Linux, Arch Linux, Void Linux, OpenBSD"
 
@@ -62,8 +67,14 @@ bootstrap_arch()
 {
 	info "Updating Package Cache..."
 	$DOAS pacman -Sy
+
 	info "Installing crucial packages..."
 	$DOAS pacman -S --needed $ARCH_PKGS
+
+	info "Installing the Universal Package Manager 'upkg'."
+	cd $PERSONAL_REPOS
+	[ ! -d upkg ] && git clone $UPKG_REPO
+	$DOAS install $PERSONAL_REPOS/upkg/upkg-arch /usr/local/bin/upkg
 }
 
 bootstrap_openbsd()
@@ -78,6 +89,8 @@ bootstrap_void()
 
 bootstrap()
 {
+	# Insure that the repos directory exists.
+	mkdir -p $PERSONAL_REPOS 2>&1 > /dev/null
 	os=$1
 	case arch in
 		alpine)		bootstrap_alpin ;;
