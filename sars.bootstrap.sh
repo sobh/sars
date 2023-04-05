@@ -14,7 +14,7 @@ UPKG_REPO="git@github.com:sobh/upkg"
 OS=""
 DOAS=""
 
-ARCH_PKGS="openssh git"
+ARCH_PKGS="openssh git fakeroot"
 ARCH_AUR_HELPER="yay-bin"
 #---- Constatns ----------------------------------------------------------------
 REPOS_DIR="$HOME/repos"
@@ -72,7 +72,7 @@ bootstrap_arch()
 	$DOAS pacman -Sy
 
 	info "Installing crucial packages..."
-	$DOAS pacman -S --needed $ARCH_PKGS
+	$DOAS pacman -S --needed --noconfirm $ARCH_PKGS
 
 	info "Installing the AUR Helper '$ARCH_AUR_HELPER'."
 	helper_repo="https://aur.archlinux.org/$ARCH_AUR_HELPER"
