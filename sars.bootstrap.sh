@@ -4,6 +4,8 @@
 #
 
 #---- Parameters ---------------------------------------------------------------
+# Defaults
+XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 USERNAME="Mohamed Sobh"
 EMAIL="mohamed.alhusieny@gmail.com"
 DOTFILES_REPO="git@github.com:sobh/dotfiles"
@@ -13,6 +15,7 @@ OS=""
 DOAS=""
 
 ARCH_PKGS="openssh git"
+ARCH_AUR_HELPER="yay-bin"
 #---- Constatns ----------------------------------------------------------------
 REPOS_DIR="$HOME/repos"
 PERSONAL_REPOS="$REPOS_DIR/$(whoami)"
@@ -70,6 +73,14 @@ bootstrap_arch()
 
 	info "Installing crucial packages..."
 	$DOAS pacman -S --needed $ARCH_PKGS
+
+	info "Installing the AUR Helper '$ARCH_AUR_HELPER'."
+	helper_repo="https://aur.archlinux.org/$ARCH_AUR_HELPER"
+	aur_cache="$XDG_CACHE_HOME/aur"
+	mkdir -p $aur_cache; cd $aur_cache
+	[ ! -d $ARCH_AUR_HELPER ] && git clone $helper_repo
+	cd $ARCH_AUR_HELPER && git pull
+	makepkg -si --noconfirm --needed
 
 	info "Installing the Universal Package Manager 'upkg'."
 	cd $PERSONAL_REPOS
