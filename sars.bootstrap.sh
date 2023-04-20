@@ -157,5 +157,9 @@ info "Configuring git..."
 ( set -x; git config --global user.name "$USERNAME"; )
 ( set -x; git config --global user.email "$EMAIL"; )
 
+#---- Set Default Shell ----------------
+info "Setting the default shell to zsh..."
+$DOAS chsh -s $(grep zsh /etc/shells | head -n1) $USER
+
 #---- Dotfiles -------------------------
 summon_dotfiles "$HOME" "$DOTFILES_REPO"
