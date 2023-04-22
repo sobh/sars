@@ -1,0 +1,77 @@
+name	description	category	short	url	repo	size	loc	ui	essential	desktop	laptop	server	tags	openbsd	arch	aur	void
+GnuCash	Personal and small-business financial-accounting application	accounting	accounting					gui	FALSE	TRUE	TRUE	FALSE	accounting	gnucash	gnucash		gnucash
+unzip	UnZip is an extraction utility for archives compressed in .zip format	archivers	unzip	https://infozip.sourceforge.net				cli	TRUE	TRUE	TRUE	FALSE	compression, archive	unzip	unzip		unzip
+ALSA Utilities	Advanced Linux Sound Architecture (ALSA) utilities	audio	volume-mixer					tui	TRUE	TRUE	TRUE	FALSE	audio, config		alsa-utils		alsa-utils
+Calibre	Ebook management application	books	book-library					gui	FALSE	TRUE	TRUE	FALSE	books, library	calibre	calibre		calibre
+Chromium	Current king of web browsers	browsers	web-browser					gui	TRUE	TRUE	TRUE	FALSE	web	chromium	chromium		chromium
+Dconf Editor	GSettings editor for GNOME	desktop	settings-editor					gui	TRUE	TRUE	TRUE	FALSE	config	dconf-editor	dconf-editor		dconf-editor
+GNU Diffutils	The GNU diff utilities	dev	diff					cli	TRUE	TRUE	TRUE	FALSE	dev, diff		diffutils		diffutils
+Incomnia	HTTP and GraphQL client for developers	dev	http-client					gui	FALSE	TRUE	TRUE	FALSE	http, rest, api	insomnia	insomnia		insomnia
+Visual Studio Code	Visual Studio Code	dev	ide					gui	FALSE	TRUE	TRUE	FALSE	dev, ide, editor		code		vscode
+cloc	Count lines of code	dev	lines-of-code-counter					cli	TRUE	TRUE	TRUE	FALSE	dev	cloc	cloc		cloc
+bat	Cat(1) clone with syntax highlighting and Git integration	dev	pager					cli	TRUE	TRUE	TRUE	FALSE	dev	bat	bat		bat
+IPython	An enhanced Interactive Python shell.	dev	shell					cli	FALSE	TRUE	TRUE	FALSE	shell, python, dev, ipython	ipython	ipython		ipython
+checkbashisms	Debian script that checks for bashisms	dev	test					cli	FALSE	TRUE	TRUE	TRUE	dev	checkbashisms	checkbashisms		checkbashisms
+Evince	Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)	document-viewers	document-viewer					gui	TRUE	TRUE	TRUE	FALSE	pdf, viewer	evince	evince		evince
+Foliate	A simple and modern GTK eBook reader	document-viewers	epub-viewer					gui	FALSE	TRUE	TRUE	FALSE	epub, viewer	foliate	foliate		foliate
+Arch Wiki HTML	Arch Wiki HTML format	documentation	documentation					doc	TRUE	TRUE	TRUE	FALSE	doc		arch-wiki-docs		
+Arch Wiki Text	Arch Wiki Text format	documentation	documentation					doc	TRUE	TRUE	TRUE	TRUE	doc		arch-wiki-lite		
+gnucash-docs	Documentation for GnuCash	documentation	documentation					doc	FALSE	TRUE	TRUE	FALSE	accounting	gnucash-docs	gnucash-docs		gnucash-docs
+ghex	A simple binary editor for the Gnome desktop	editors	binary-editor					gui	FALSE	TRUE	TRUE	FALSE	hex, editor	ghex	ghex		ghex
+Geany	Fast and lightweight IDE	editors	text-editor					gui	FALSE	TRUE	TRUE	FALSE	editor, ide	geany	geany		geany
+Geany Plugins	Plugins for Geany	editors	text-editor					other	FALSE	TRUE	TRUE	FALSE	editor, ide, plugin		geany-plugins		geany-plugins
+gedit	GNOME Text Editor	editors	text-editor					gui	FALSE	TRUE	TRUE	FALSE	editor	gedit	gedit		gedit
+NeoVim	Fork of Vim aiming to improve user experience, plugins, and GUIs	editors	text-editor					tui	TRUE	TRUE	TRUE	FALSE	editor	neovim	neovim		neovim
+keepassxc	Cross-platform community-driven port of Keepass password manager	encryption	password-manager					gui	TRUE	TRUE	TRUE	FALSE	security, encryption, password, manager	keepassxc	keepassxc		keepassxc
+Gucharmap	Gnome Unicode Charmap	fonts	character-map					gui	FALSE	TRUE	TRUE	FALSE	glyph, character, viewer	gucharmap	gucharmap		gucharmap
+nerd-fonts	High number of extra glyphs from popular iconic fonts	fonts	font					other	TRUE	TRUE	TRUE	FALSE	font	nerd-fonts	ttf-nerd-fonts-symbols-2048-em		nerd-fonts
+nerd-fonts-mono	﻿High number of extra glyphs from popular iconic fonts	fonts	font					other	TRUE	TRUE	TRUE	FALSE	font		ttf-nerd-fonts-symbols-2048-em-mono		
+Noto Emojis	Google Noto emoji fonts	fonts	font					gui	TRUE	TRUE	TRUE	FALSE	font		noto-fonts-emoji		noto-fonts-emoji
+Spleen Font	Monospaced bitmap fonts	fonts	font					other	TRUE	TRUE	TRUE	TRUE	font				font-spleen
+Terminus Font	Monospace bitmap font (for X11 and console)	fonts	font					other	TRUE	TRUE	TRUE	TRUE	font		terminus-font		
+Vector Mono Font	A programming font with cursive italics and ligatures.	fonts	font					other	FALSE	TRUE	TRUE	FALSE	font		font-victor-mono		
+gnome-font-viewer	A font viewer utility for GNOME	fonts	font-viewer					gui	FALSE	TRUE	TRUE	FALSE	font, viewer	gnome-font-viewer	gnome-font-viewer		gnome-font-viewer
+Lib XFT BGRA	libXft with BGRA glyph (color emoji) rendering & scaling patches by Maxime Coste	fonts	library					other	TRUE	TRUE	TRUE	FALSE	font, lib		libxft-bgra		
+Inkscape	Professional vector graphics editor	graphics	graphics-editor					gui	FALSE	TRUE	TRUE	FALSE	vector, graphics, editor	inkscape	inkscape		inkscape
+Linux LTS Kernel	The LTS Linux kernel and modules	krenel	kernel					other	TRUE	TRUE	TRUE	TRUE	kernel		linux-lts		linux-lts
+NetworkManager	Network connection manager and user applications	network	network-manager					service	TRUE	TRUE	TRUE	FALSE	network		networkmanager		NetworkManager
+Network Manager Applet	Applet for managing network connections	network	system-tray					gui	TRUE	TRUE	TRUE	FALSE	network		network-manager-applet		network-manager-applet
+jpdftweak	A Swiss Army Knife GUI application for PDF documents	pdf	pdf-editor					gui	FALSE	TRUE	TRUE	FALSE	pdf, editor	jpdftweak	jpdftweak		jpdftweak
+libreoffice	LibreOffice branch which contains new features and program enhancements	productivity	office-suite					gui	FALSE	TRUE	TRUE	FALSE	office	libreoffice	libreoffice-fresh		libreoffice
+Arch Linux Wallpapers	Arch Linux Wallpapers	rice	wallpapers					other	FALSE	TRUE	TRUE	FALSE	rice		archlinux-wallpaper		
+GRML zsh config	grml's zsh setup	shells	config					other	TRUE	TRUE	TRUE	TRUE	config, shell		grml-zsh-config		grml-zsh-config
+zsh-syntax-highlighting	Fish shell like syntax highlighting for Zsh	shells	config					other	TRUE	TRUE	TRUE	TRUE	config, shell	zsh-syntax-highlighting	zsh-syntax-highlighting		zsh-syntax-highlighting
+dash	POSIX compliant shell that aims to be as small as possible	shells	shell					cli	TRUE	TRUE	TRUE	TRUE	shell	dash	dash		dash
+zsh	Z SHell	shells	shell					cli	TRUE	TRUE	TRUE	TRUE	shell	zsh	zsh		zsh
+zsh-autosuggestions	Fish-like autosuggestions for zsh	shells	shell					other	TRUE	TRUE	TRUE	TRUE	config, shell	zsh-autosuggestions	zsh-autosuggestions		zsh-autosuggestions
+zsh-completions	Additional completion definitions for Zsh	shells	shell					other	TRUE	TRUE	TRUE	TRUE	config, shell	zsh-completions	zsh-completions		zsh-completions
+zsh-doc	Info, HTML and PDF format of the ZSH documentation	shells	shell					other	TRUE	TRUE	TRUE	TRUE	doc, shell	zsh-doc	zsh-doc		zsh-doc
+grsync	GTK+ GUI for rsync to synchronize folders, files and make backups	sync	sync					gui	FALSE	TRUE	TRUE	FALSE	sync	grsync	grsync		grsync
+syncthing	Open Source Continuous Replication / Cluster Synchronization Thing	sync	sync					service	TRUE	TRUE	TRUE	FALSE	sync	syncthing	syncthing		syncthing
+syncthing-gtk-python3	GTK3 based GUI and notification area icon for Syncthing. Python 3 port with Debian sources.	sync	system-tray					gui	TRUE	TRUE	TRUE	FALSE	sync	syncthing-gtk-python3	syncthing-gtk-python3		syncthing-gtk-python3
+reflector	Retrieve and filter the latest Pacman mirror list.	system-utils	mirror-update					cli	TRUE	TRUE	TRUE	TRUE	system, maintenance		reflector		
+pkgfile	a pacman .files metadata explorer	system-utils	package-management					cli	TRUE	TRUE	TRUE	TRUE	package		pkgfile		
+lxterminal	VTE-based terminal emulator (part of LXDE)	terminals	terminal					gui	TRUE	TRUE	TRUE	FALSE	terminal	lxterminal	lxterminal		lxterminal
+RenameUtils	Programs designed to make renaming of files faster and less cumbersome	utils	bulk-rename					cli	TRUE	TRUE	TRUE	TRUE	utils		renameutils		renameutils
+gnome-characters	A character map application	utils	character-map					gui	FALSE	TRUE	TRUE	FALSE	glyph, character, viewer	gnome-characters	gnome-characters		gnome-characters
+gparted	A Partition Magic clone, frontend to GNU Parted	utils	disk-partitioner					gui	FALSE	TRUE	TRUE	FALSE	utils, disk, partition, format	gparted	gparted		gparted
+dosfstools	DOS filesystem utilities: mkfs.fat, fsck.fat and fatlabel	utils	filesystem-utils					cli	TRUE	TRUE	TRUE	FALSE	utils, filesystem, disk, dos	dosfstools	dosfstools		dosfstools
+e2fsprogs	Ext2/3/4 filesystem utilities	utils	filesystem-utils					cli	TRUE	TRUE	TRUE	TRUE	utils, filesystem, disk	e2fsprogs	e2fsprogs		e2fsprogs
+jq	Command-line JSON processor	utils	json-processor					cli	TRUE	TRUE	TRUE	TRUE	utils, text, json, processor	jq	jq		jq
+exa	ls replacement	utils	list-dir					cli	TRUE	TRUE	TRUE	TRUE	utils, core	exa	exa		exa
+expac	alpm data (pacman database) extraction utility	utils	package-management					cli	TRUE	TRUE	TRUE	TRUE	utils, admin, pkg		expac		
+htop	Interactive process viewer	utils	system-monitor					cli	TRUE	TRUE	TRUE	TRUE	resources, monitor	htop	htop		htop
+trash	Command line trashcan (recycle bin) interface	utils	trash					cli	TRUE	TRUE	TRUE	TRUE	utils, trash		trash-cli		trash-cli
+git	Distributed version control system	vcs	version-control					cli	TRUE	TRUE	TRUE	TRUE	dev, vcs	git	git		git
+bemenu	Dynamic menu for Wayland inspired by dmenu	wayland	menu					gui	TRUE	TRUE	TRUE	FALSE	menu		bemenu		bemenu
+sway	Tiling Wayland compositor compatible with i3	wayland	window-manager					gui	TRUE	TRUE	TRUE	FALSE	compositor, window-manager		sway		sway
+arandr	Graphical frontend for XRandR	x11	display-config					gui	TRUE	TRUE	TRUE	FALSE	config, display, monitor	arandr	arandr		arandr
+unclutter	A small program for hiding the mouse cursor	x11	hide-cursor					cli	TRUE	TRUE	TRUE	FALSE	cursor	unclutter	unclutter		unclutter
+dmenu	Dynamic menu for X	x11	menu					gui	TRUE	TRUE	TRUE	FALSE	menu	dmenu	dmenu		dmenu
+dunst	Customizable and lightweight notification-daemon	x11	notification-daemon					gui	TRUE	TRUE	TRUE	FALSE	notifications	dunst	dunst		dunst
+i3blocks	Define blocks for your i3bar status line	x11	status-bar					gui	TRUE	TRUE	TRUE	FALSE	status, bar				
+i3status	Generates status bar to use with i3bar, dzen2 or xmobar	x11	status-bar					gui	TRUE	TRUE	TRUE	FALSE	status, bar	i3status	i3status		i3status
+dwm	A dynamic window manager for X	x11	window-manager					gui	TRUE	TRUE	TRUE	FALSE	window-manager	dwm	dwm		dwm
+i3	Improved dynamic tiling window manager	x11	window-manager					gui	TRUE	TRUE	TRUE	FALSE	window-manager	i3	i3-wm		i3
+xinit	X.Org initialisation program	x11	x11-initialization					gui	TRUE	TRUE	TRUE	FALSE	x11		xorg-xinit		xinit
+xserver	X11 server from X.org	x11	x11-server					gui	TRUE	TRUE	TRUE	FALSE	x11, server		xorg-serrver		xorg-server
