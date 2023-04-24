@@ -16,6 +16,8 @@ DOAS=""
 
 ARCH_PKGS="openssh git fakeroot"
 ARCH_AUR_HELPER="yay-bin"
+
+OPENBSD_PKGS="git"
 #---- Constatns ----------------------------------------------------------------
 REPOS_DIR="$HOME/repos"
 PERSONAL_REPOS="$REPOS_DIR/$(whoami)"
@@ -90,7 +92,13 @@ bootstrap_arch()
 
 bootstrap_openbsd()
 {
-	error "OpenBSD bootstrap is WIP."
+	info "Installing crucial packages..."
+	$DOAS pkg_add $OPENBSD_PKGS
+
+	info "Installing the Universal Package Manager 'upkg'."
+	cd $PERSONAL_REPOS
+	[ ! -d upkg ] && git clone $UPKG_REPO
+	$DOAS install $PERSONAL_REPOS/upkg/upkg-openbsd /usr/local/bin/upkg
 }
 
 bootstrap_void()
@@ -103,8 +111,8 @@ bootstrap()
 	# Insure that the repos directory exists.
 	mkdir -p $PERSONAL_REPOS 2>&1 > /dev/null
 	os=$1
-	case arch in
-		alpine)		bootstrap_alpin ;;
+	case $os in
+		alpine)		bootstrap_alpine ;;
 		arch)		bootstrap_arch ;;
 		openbsd)	bootstrap_openbsd ;;
 		void)		bootstrap_void ;;
@@ -137,7 +145,6 @@ summon_dotfiles ()
 OS=$(getos)
 DOAS=$(getdoas)
 
-echo
 if [ "$OS" = "unkown" ]; then
 	error "System is not supported. Not in ($SUPPORTED_OS)."
 	exit 1
