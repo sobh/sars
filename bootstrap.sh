@@ -84,21 +84,12 @@ bootstrap_arch()
 	cd $ARCH_AUR_HELPER && git pull
 	makepkg -si --noconfirm --needed
 
-	info "Installing the Universal Package Manager 'upkg'."
-	cd $PERSONAL_REPOS
-	[ ! -d upkg ] && git clone $UPKG_REPO
-	$DOAS install $PERSONAL_REPOS/upkg/upkg-arch /usr/local/bin/upkg
 }
 
 bootstrap_openbsd()
 {
 	info "Installing crucial packages..."
 	$DOAS pkg_add $OPENBSD_PKGS
-
-	info "Installing the Universal Package Manager 'upkg'."
-	cd $PERSONAL_REPOS
-	[ ! -d upkg ] && git clone $UPKG_REPO
-	$DOAS install $PERSONAL_REPOS/upkg/upkg-openbsd /usr/local/bin/upkg
 }
 
 bootstrap_void()
@@ -118,6 +109,12 @@ bootstrap()
 		void)		bootstrap_void ;;
 		*) error "Operating System $os is not supported."
 	esac
+
+	# Install `upkg`
+	info "Installing the Universal Package Manager 'upkg'."
+	cd $PERSONAL_REPOS
+	[ ! -d upkg ] && git clone $UPKG_REPO
+	(set -x; $DOAS install $PERSONAL_REPOS/upkg/upkg-$os /usr/local/bin/upkg)
 }
 
 #-------- dotfiles ---------------------
