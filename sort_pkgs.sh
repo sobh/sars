@@ -10,5 +10,5 @@
 	echo "$header"
 	# Sort the packages
 	sort -t"$(printf '\t')" -k3,3 -k4,4 -k1,1 < /dev/stdin
-} < ${1:-/dev/stdin}
+} < "${1:-/dev/stdin}"
 
