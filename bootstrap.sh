@@ -14,10 +14,10 @@ UPKG_REPO="git@github.com:sobh/upkg"
 OS=""
 DOAS=""
 
-ARCH_PKGS="openssh git fakeroot"
+BASE_PKGS="git"
+ARCH_PKGS="openssh fakeroot"
 ARCH_AUR_HELPER="yay-bin"
 
-OPENBSD_PKGS="git"
 #---- Constatns ----------------------------------------------------------------
 REPOS_DIR="$HOME/repos"
 PERSONAL_REPOS="$REPOS_DIR/$(whoami)"
@@ -26,7 +26,7 @@ SUPPORTED_DOAS="doas, sudo"
 SUPPORTED_OS="Alpine Linux, Arch Linux, Void Linux, OpenBSD"
 
 # Escape Colors
-ESC="\e"
+ESC="\033"
 RESET="$ESC[0m"
 FG_RED="$ESC[91m"
 FG_GREEN="$ESC[92m"
@@ -74,7 +74,7 @@ bootstrap_arch()
 	$DOAS pacman -Sy
 
 	info "Installing crucial packages..."
-	$DOAS pacman -S --needed --noconfirm $ARCH_PKGS
+	$DOAS pacman -S --needed --noconfirm $BASE_PKGS $ARCH_PKGS
 
 	info "Installing the AUR Helper '$ARCH_AUR_HELPER'."
 	helper_repo="https://aur.archlinux.org/$ARCH_AUR_HELPER"
@@ -89,12 +89,13 @@ bootstrap_arch()
 bootstrap_openbsd()
 {
 	info "Installing crucial packages..."
-	$DOAS pkg_add $OPENBSD_PKGS
+	$DOAS pkg_add $BASE_PKGS
 }
 
 bootstrap_void()
 {
-	error "Void Linux bootstrap is WIP."
+	info "Installing crucial packages..."
+	$DOAS xbps-install $BASE_PKGS
 }
 
 bootstrap()
