@@ -38,9 +38,10 @@ FG_CYAN="$ESC[96m"
 #---- Functions ----------------------------------------------------------------
 #
 #-------- Status -----------------------
-info()		{ printf "${FG_BLUE}%-8s$RESET: %s\n" "Info" "$*"; }
-warning()	{ printf "${FG_YELLOW}%-8s$RESET: %s\n" "Warning" "$*"; }
-error()		{ printf "${FG_RED}%-8s$RESET: %s\n" "Error" "$*"; }
+SARS_PREFIX="${FG_MAGENTA}SARS | "
+info()		{ printf "${SARS_PREFIX}${FG_BLUE}%-8s$RESET: %s\n" "Info" "$*"; }
+warning()	{ printf "${SARS_PREFIX}${FG_YELLOW}%-8s$RESET: %s\n" "Warning" "$*"; }
+error()		{ printf "${SARS_PREFIX}${FG_RED}%-8s$RESET: %s\n" "Error" "$*"; }
 
 #-------- OS Probing -------------------
 getos()
