@@ -18,12 +18,14 @@ BASE_PKGS="git"
 ARCH_PKGS="openssh fakeroot"
 ARCH_AUR_HELPER="yay-bin"
 
-#---- Constatns ----------------------------------------------------------------
+#---- Constants ----------------------------------------------------------------
+MY_DIR=$(dirname $0)
 REPOS_DIR="$HOME/repos"
 PERSONAL_REPOS="$REPOS_DIR/$(whoami)"
 
 SUPPORTED_DOAS="doas, sudo"
 SUPPORTED_OS="Alpine Linux, Arch Linux, Void Linux, OpenBSD"
+SUPPORTED_FF="desktop, laptop, server"
 
 # Escape Colors
 ESC="\033"
@@ -36,13 +38,25 @@ FG_MAGENTA="$ESC[95m"
 FG_CYAN="$ESC[96m"
 
 #---- Functions ----------------------------------------------------------------
-#
+
 #-------- Status -----------------------
 SARS_PREFIX="${FG_MAGENTA}SARS | "
 info()		{ printf "${SARS_PREFIX}${FG_BLUE}%-8s$RESET: %s\n" "Info" "$*"; }
 warning()	{ printf "${SARS_PREFIX}${FG_YELLOW}%-8s$RESET: %s\n" "Warning" "$*"; }
 error()		{ printf "${SARS_PREFIX}${FG_RED}%-8s$RESET: %s\n" "Error" "$*"; }
 
+#-------- Usage ------------------------
+usage()
+{
+	cat << _EOF
+
+$(basename $0)  FORM_FACTOR
+
+Parameters:
+	FORM_FACTOR     The machine form factor. One of: $SUPPORTED_FF
+
+_EOF
+}
 #-------- OS Probing -------------------
 getos()
 {
@@ -111,12 +125,20 @@ bootstrap()
 		void)		bootstrap_void ;;
 		*) error "Operating System $os is not supported."
 	esac
+	formfactor=$2
 
 	# Install `upkg`
 	info "Installing the Universal Package Manager 'upkg'."
+	_cw=$(pwd)
 	cd $PERSONAL_REPOS
 	[ ! -d upkg ] && git clone $UPKG_REPO
 	(set -x; $DOAS install $PERSONAL_REPOS/upkg/upkg-$os /usr/local/bin/upkg)
+	cd $_cw
+
+	# Intall the essential packages
+	info "Installing the essential packages for a '$formfactor'..."
+	pkgs=$("$MY_DIR/list_pkgs.awk" -v os=$os -v machine=$formfactor < "$MY_DIR/pkgs.tsv")
+	$DOAS upkg install $pkgs
 }
 
 #-------- dotfiles ---------------------
@@ -139,6 +161,25 @@ summon_dotfiles ()
 	git checkout --force master
 }
 #---- Main ---------------------------------------------------------------------
+#---- Sanity Check ---------------------
+FORM_FACTOR="$1"
+
+if [ -z "$FORM_FACTOR" ]; then
+	error "Please specify the machine form factor."
+	usage
+	exit 3
+else
+	case $FORM_FACTOR in
+		desktop)    ;;
+		laptop)     ;;
+		server)     ;;
+		*)
+			error "Form Factor: '$FORM_FACTOR' is not supported. Not in ($SUPPORTED_FF)."
+			usage
+			exit 3
+			;;
+	esac
+fi
 
 #---- Probe System ---------------------
 OS=$(getos)
@@ -152,12 +193,12 @@ info "Detected Operating System $OS."
 
 if [ "$DOAS" = "unkown" ]; then
 	error "Unable to find a supported privilege escalation command. Not in ($SUPPORTED_DOAS)."
-	exit 1
+	exit 2
 fi
 info "Detected privilege escalation command $DOAS."
 
 #---- Bootstrap ------------------------
-bootstrap $OS
+bootstrap $OS $FORM_FACTOR
 
 info "Configuring git..."
 ( set -x; git config --global user.name "$USERNAME"; )
