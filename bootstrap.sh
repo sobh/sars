@@ -165,7 +165,7 @@ info "Configuring git..."
 
 #---- Set Default Shell ----------------
 info "Setting the default shell to zsh..."
-$DOAS chsh -s $(grep zsh /etc/shells | head -n1) $USER
+chsh -s $(grep zsh /etc/shells | head -n1) $USER
 
 #---- Dotfiles -------------------------
 summon_dotfiles "$HOME" "$DOTFILES_REPO"
